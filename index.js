@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const wkhtmltopdf = require('wkhtmltopdf');
 const fs = require("fs");
-const morgan = require('morgan')
+
 const cors = require('cors');
 
-app.use(morgan('dev'))
 app.use(express.json());
 app.use(cors({origin: '*'}))
 
