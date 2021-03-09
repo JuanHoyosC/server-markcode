@@ -11,10 +11,11 @@ app.use(cors({origin: '*'}))
 
 app.post('/', (req, res) => {
 
-    wkhtmltopdf(req.body.data, { output: 'demo.pdf', pageSize: 'letter' }, () => {
+    wkhtmltopdf(req.body.data, { output: 'demo.pdf', pageSize: 'letter' }, (err, stream) => {
         const data = fs.readFileSync('./demo.pdf');
         res.contentType("application/pdf");
         res.send(data);
+        
     });
 })
 
